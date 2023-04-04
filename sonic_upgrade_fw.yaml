@@ -21,7 +21,7 @@
 
   - name: Backup Config File 
     sonic_command: 
-            commands: "copy running-config scp://{{ login }}:{{ scp_pass }}@192.168.1.238/home/dell/{{ inventory_hostname }}.cfg" 
+            commands: "copy running-config scp://{{ login }}:{{ scp_pass }}@{{ server_ip }}/home/dell/{{ inventory_hostname }}.cfg" 
     register: result
   - debug: var=result
   
