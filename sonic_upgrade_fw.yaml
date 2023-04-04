@@ -1,0 +1,50 @@
+---
+- hosts: all 
+  connection: httpapi 
+  gather_facts: no 
+  vars: 
+    login: dell 
+    scp_pass: DellDell1234
+    server_ip: 192.168.1.238
+    firmware: sonic.bin
+    ansible_connection: network_cli 
+
+  collections: 
+    - dellemc.enterprise_sonic 
+
+  tasks: 
+  - name: Copy Run to Start 
+    sonic_command: 
+      commands: "copy running-config startup-config" 
+    register: result
+  - debug: var=result 
+
+  - name: Backup Config File 
+    sonic_command: 
+            commands: "copy running-config scp://{{ login }}:{{ scp_pass }}@192.168.1.238/home/dell/{{ inventory_hostname }}.cfg" 
+    register: result
+  - debug: var=result
+  
+  - name: Update firmware 
+    sonic_command:
+            commands: "image install http://{{ server_ip }}/{{ firmware }}" 
+    register: result 
+  - debug: var=result 
+
+  - name: Check Image List 
+    sonic_command: 
+            commands: "show image list" 
+    register: result 
+  - debug: var=result 
+ 
+  - name: Check Image Status 
+    sonic_command: 
+            commands: "show image status " 
+    register: result 
+  - debug: var=result 
+
+  - name: Set Good Image 
+    sonic command: 
+            commands: "image set-default SONiC-OS-4.€.5-Enterprise_Base" 
+    register: result
+  - debug: var=result 
