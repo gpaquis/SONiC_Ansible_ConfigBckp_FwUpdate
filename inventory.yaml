@@ -1,0 +1,13 @@
+sonic_swl ansible_host=192.168.1.100 
+
+[switch] 
+sonic_swl
+
+[all:children] 
+switch 
+
+[switch:vars] 
+ansible_ssh_user=admin 
+ansible_ssh_pass=YourpaSsWoRd 
+ansible_network_os=ansible.enterprise_sonic.sonic 
+ansible_connection=network_cli
