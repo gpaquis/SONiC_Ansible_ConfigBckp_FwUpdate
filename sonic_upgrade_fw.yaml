@@ -45,6 +45,6 @@
 
   - name: Set Good Image 
     sonic command: 
-            commands: "image set-default SONiC-OS-4.€.5-Enterprise_Base" 
+            commands: "image set-default SONiC-OS-4.0.5-Enterprise_Base" 
     register: result
   - debug: var=result 
