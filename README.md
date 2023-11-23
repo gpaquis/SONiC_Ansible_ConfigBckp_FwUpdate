@@ -18,7 +18,9 @@ The Ansible playbook, backup config file and deploy a new firmware. <br />
 This script is for purpose test only and explain howto use DES and CLI collection
 
 ## 📋 Requirements
-- Ansible 
+- Ansible
+- SSH server with SCP allow to store the config file
+
 
 ## 🏁 Usage and Configuration
 Run the playbook with the ansible-playbook command
