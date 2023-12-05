@@ -24,5 +24,5 @@ This script is for purpose test only and explain howto use DES and CLI collectio
 
 ## 🏁 Usage and Configuration
 Run the playbook with the ansible-playbook command  <br />
-For Backup Config file on a remote swtch available in thee inventory <br />
+For Backup Config file on a remote switch available in the inventory <br />
    ansible-playbook -vvv -i inventory.yaml sonic_backup_config.yaml
