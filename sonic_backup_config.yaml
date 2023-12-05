@@ -26,27 +26,3 @@
       commands: "copy running-config scp://{{ login }}:{{ scp_pass }}@{{ server_ip }}{{ directory_backup }}/{{ inventory_hostname }}-{{ date }}.cfg"
     register: result
   - debug: var=result
-
-  - name: Update firmware
-    sonic_command:
-      commands: "image install http://{{ server_ip }}/{{ firmware }}"
-    register: result
-  - debug: var=result
-
-  - name: Check Image List
-    sonic_command:
-      commands: "show image list"
-    register: result
-  - debug: var=result
-
-  - name: Check Image Status
-    sonic_command:
-      commands: "show image status "
-    register: result
-  - debug: var=result
-
-  - name: Set Good Image
-    sonic_command:
-      commands: "image set-default SONiC-OS-4.0.5-Enterprise_Base"
-    register: result
-  - debug: var=result
