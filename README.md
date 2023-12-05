@@ -3,7 +3,7 @@
 Built and maintained by [Gerald PAQUIS](https://github.com/gpaquis) 
 
 --------------------
-This Repo contains an Ansible playbook script backup the config file on a remote server with SCP and deploy a new Firmware Release
+This Repo contains an Ansible playbook script backup the config file on a remote server with SCP and/or deploy a new Firmware Release
 
 ## Contents
 
@@ -24,3 +24,5 @@ This script is for purpose test only and explain howto use DES and CLI collectio
 
 ## 🏁 Usage and Configuration
 Run the playbook with the ansible-playbook command
+For Backup Config file on a remote swtch available in thee inventory
+   ansible-playbook -vvv -i inventory.yaml sonic_backup_config.yaml
