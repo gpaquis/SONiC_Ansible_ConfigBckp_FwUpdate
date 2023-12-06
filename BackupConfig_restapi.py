@@ -10,6 +10,28 @@ import base64
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+def read_config():
+
+    sw_list = dict()
+    backup_cfg = []
+    config = configparser.ConfigParser()
+    config.read('backup_list.conf')
+
+    for each_section in config.sections():
+      for (each_key, each_val) in config.items(each_section):
+          if each_key == "docker-name":
+              tpcmlist.update({each_section : each_val})
+    print (f'{tpcmlist}')
+    myanswer = input('Enter TPCM id (ex: TPCM1) or ALL:')
+    if myanswer.lower() != "all":
+     tpcmreturn.append(myanswer.upper())
+     #print (f'install: {myanswer}')
+     return tpcmreturn
+    else:
+        for each_section in tpcmlist:
+         #print (f'{each_section}')
+         tpcmreturn.append(each_section)
+        return tpcmreturn
 
 def validate_ip_address(ip_string) -> bool:
     try:
