@@ -3,7 +3,7 @@
 Built and maintained by [Gerald PAQUIS](https://github.com/gpaquis) 
 
 --------------------
-This Repo contains an Ansible playbook script backup the config file on a remote server with SCP and/or deploy a new Firmware Release
+This Repo contains an Ansible playbook script to backup the config file on a remote server with SCP and/or deploy a new Firmware Release
 
 ## Contents
 
