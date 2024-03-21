@@ -20,6 +20,7 @@ This script is for purpose test only and explain howto use DES and CLI collectio
 ## 📋 Requirements
 - Ansible
 - SSH server with SCP allow to store the config file
+- HTTP server to host Firmware images
 
 
 ## 🏁 Usage and Configuration
